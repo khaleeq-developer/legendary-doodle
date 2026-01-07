@@ -19,7 +19,7 @@ jobs:
       - name: Step 2 - Intentional failure
         run: |
           echo "This step will fail"
-          exit 1
+          exit 0
 
       - name: Step 3 - Runs only if previous steps succeeded
         if: success()
