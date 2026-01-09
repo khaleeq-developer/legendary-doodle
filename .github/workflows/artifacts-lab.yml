@@ -15,11 +15,11 @@ jobs:
           echo "File created:"
           ls -l
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-output
-          path: output.txt
+      # - name: Upload artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: build-output
+      #     path: output.txt
 
   consume:
     name: Consume artifact
