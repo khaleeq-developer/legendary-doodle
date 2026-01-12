@@ -1,0 +1,28 @@
+name: Status Lab
+
+on:
+  push:
+    branches:
+      - main
+      - fail-demo
+  workflow_dispatch:
+
+jobs:
+  status-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show branch
+        run: |
+          echo "Branch ref: ${{ github.ref }}"
+
+      - name: Fail only on fail-demo branch
+        if: github.ref == 'refs/heads/fail-demo'
+        run: |
+          echo "This branch is designed to fail"
+          exit 1
+
+      - name: Success message
+        if: success()
+        run: |
+          echo "Workflow completed successfully"
